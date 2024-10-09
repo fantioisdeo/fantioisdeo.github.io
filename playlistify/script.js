@@ -1,6 +1,7 @@
 function addSong() {
     const songTitle = document.getElementById("songTitle").value;
     const artistName = document.getElementById("artistName").value;
+    const linkSong = document.getElementById("linkSong").value;
 
     if (songTitle === "" || artistName === "") {
         alert("Mohon masukkan judul lagu dan nama artis.");
@@ -11,13 +12,23 @@ function addSong() {
     playlistTable.row.add([
         songTitle,
         artistName,
-        `<button class="update-button" onclick="updateSong(this)">Edit</button>
-         <button class="remove-button" onclick="removeSong(this)">Hapus</button>`
+        `
+        <div class="aksi">
+            <a class="link-button" href="${linkSong}" target="_blank">
+                <button class="link-button">
+                    Lets Go!
+                </button>
+            </a>
+            <button class="update-button" onclick="updateSong(this)">Edit</button>
+            <button class="remove-button" onclick="removeSong(this)">Hapus</button>
+        </div>
+        `
     ]).draw();
 
     // Reset input fields
     document.getElementById("songTitle").value = "";
     document.getElementById("artistName").value = "";
+    document.getElementById("linkSong").value = "";
 }
 
 function removeSong(button) {
@@ -32,13 +43,21 @@ function updateSong(button) {
 
     const newSongTitle = prompt("Edit judul lagu:", data[0]);
     const newArtistName = prompt("Edit nama artis:", data[1]);
+    const newLink = prompt("Edit link:", data[2].match(/href="([^"]+)"/)[1]);
 
     if (newSongTitle !== null && newArtistName !== null && newSongTitle !== "" && newArtistName !== "") {
         $('#playlist').DataTable().row(row).data([
             newSongTitle,
             newArtistName,
-            `<button class="update-button" onclick="updateSong(this)">Edit</button>
-             <button class="remove-button" onclick="removeSong(this)">Hapus</button>`
+            `<div class="aksi">
+                <a class="link-button" href="${newLink}" target="_blank">
+                    <button class="link-button">
+                        Lets Go!
+                    </button>
+                </a>
+                <button class="update-button" onclick="updateSong(this)">Edit</button>
+                <button class="remove-button" onclick="removeSong(this)">Hapus</button>
+            </div>`
         ]).draw();
     }
 }

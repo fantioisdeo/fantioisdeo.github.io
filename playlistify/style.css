@@ -137,3 +137,22 @@ li button:hover {
     margin-left: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
+
+.link-button {
+    background-color: #176bda;
+    /* Orange */
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.aksi {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
