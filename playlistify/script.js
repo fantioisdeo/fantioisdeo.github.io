@@ -13,7 +13,6 @@ function addSong() {
     
     playlist.appendChild(songItem);
 
-    // Reset input fields
     document.getElementById("songTitle").value = "";
     document.getElementById("artistName").value = "";
 }
