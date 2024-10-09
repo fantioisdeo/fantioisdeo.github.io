@@ -6,6 +6,7 @@
     <title>Playlist Lagu</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
 </head>
 <body>
     <div class="container">
@@ -16,10 +17,29 @@
             <input type="text" id="artistName" placeholder="Masukkan Nama Artis" required>
             <button onclick="addSong()">➕ Tambahkan Lagu</button>
         </div>
-        
-        <ul id="playlist"></ul>
+
+        <div style="padding-top: 5%;">
+            <table id="playlist">
+                <thead>
+                    <tr>
+                        <th>Judul Lagu</th>
+                        <th>Nama Artis</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- <ul id="playlist"></ul> -->
     </div>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#playlist').DataTable(); // Initialize DataTable
+        });
+    </script>
 </body>
 </html>
