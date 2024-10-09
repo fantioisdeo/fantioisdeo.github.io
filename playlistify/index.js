@@ -20,5 +20,6 @@ function addSong() {
 
 function removeSong(button) {
     const songItem = button.parentElement;
-    songItem.remove();
+    songItem.classlist.add('remove');
+    setTimeout(() => songItem.remove(), 300);
 }

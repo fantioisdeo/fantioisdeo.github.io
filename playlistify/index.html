@@ -1,1 +1,25 @@
-Hello Word! Selamat Mengerjakan...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Lagu</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Playlist Lagu Saya 🎶</h1>
+        
+        <div class="input-form">
+            <input type="text" id="songTitle" placeholder="Masukkan Judul Lagu" required>
+            <input type="text" id="artistName" placeholder="Masukkan Nama Artis" required>
+            <button onclick="addSong()">➕ Tambahkan Lagu</button>
+        </div>
+        
+        <ul id="playlist"></ul>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
