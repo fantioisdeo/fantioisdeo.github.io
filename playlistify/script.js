@@ -1,17 +1,28 @@
+let name = prompt("Input Username");
+
+if (name) {
+    document.getElementById('greet').innerText = name;
+} else {
+    document.getElementById('greet').innerText = "Guest";
+}
+
+
 function addSong() {
     const songTitle = document.getElementById("songTitle").value;
     const artistName = document.getElementById("artistName").value;
 
     if (songTitle === "" || artistName === "") {
-        alert("Mohon masukkan judul lagu dan nama artis.");
+        alert("Please enter the song title and artist name.");
         return;
     }
 
-    const playlist = document.getElementById("playlist");
-    const songItem = document.createElement("li");
-    songItem.innerHTML = `${songTitle} - ${artistName} <button onclick="removeSong(this)">Hapus</button>`;
-    
-    playlist.appendChild(songItem);
+    const playlistTable = $('#playlist').DataTable();
+    playlistTable.row.add([
+        songTitle,
+        artistName,
+        `<button class="update-button" onclick="updateSong(this)">Edit</button>
+         <button class="remove-button" onclick="removeSong(this)">Hapus</button>`
+    ]).draw();
 
     // Reset input fields
     document.getElementById("songTitle").value = "";
@@ -19,7 +30,24 @@ function addSong() {
 }
 
 function removeSong(button) {
-    const songItem = button.parentElement;
-    songItem.classList.add('remove');
-    setTimeout(() => songItem.remove(), 300);
+    const playlistTable = $('#playlist').DataTable();
+    const row = $(button).closest('tr');
+    playlistTable.row(row).remove().draw();
+}
+
+function updateSong(button) {
+    const row = $(button).closest('tr');
+    const data = $('#playlist').DataTable().row(row).data();
+
+    const newSongTitle = prompt("Edit judul lagu:", data[0]);
+    const newArtistName = prompt("Edit nama artis:", data[1]);
+
+    if (newSongTitle !== null && newArtistName !== null && newSongTitle !== "" && newArtistName !== "") {
+        $('#playlist').DataTable().row(row).data([
+            newSongTitle,
+            newArtistName,
+            `<button class="update-button" onclick="updateSong(this)">Edit</button>
+             <button class="remove-button" onclick="removeSong(this)">Hapus</button>`
+        ]).draw();
+    }
 }

@@ -8,10 +8,17 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f0f0f5;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between; /* Membuat konten dan footer terpisah dengan jarak */
     align-items: center;
-    height: 100vh;
-    color: #333
+    min-height: 100vh; /* Agar body tetap memenuhi layar */
+    color: #333;
+    overflow-x: hidden; /* Mencegah scrolling horizontal */
+    padding-top: 50px;
+}
+
+main {
+    padding-bottom: 50px;
 }
 
 .container {
@@ -20,9 +27,15 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 2px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 350px;
-    animation: fadeIn 1s ease-in-out;
+    width: 850px;
+    flex-grow: 1; /* Membuat container mengisi ruang yang tersisa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Mengatur konten agar tetap di tengah */
+    min-height: 300px; /* Agar container cukup tinggi dan bisa menggulirkan konten */
+    margin-top: 20px; /* Menambahkan jarak dari bagian atas */
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -51,7 +64,7 @@ h1 {
     transition: border-color 0.3s;
 }
 
-.input-form input:focus{
+.input-form input:focus {
     border-color: #5c67f2;
     outline: none;
 }
@@ -90,21 +103,166 @@ li {
     border: 1px solid #ddd;
     transition: background-color 0.3s, transform 0.3s;
 }
+
 li:hover {
     background-color: #f0f0f5;
     transform: scale(1.02);
 }
 
 li button {
-    background-color: #ff4d4d;
-    color: white;
+    padding: 10px 15px;
     border: none;
-    padding: 6px 12px;
     border-radius: 5px;
     cursor: pointer;
-    transition: backgorund-color 0.3s;
+    font-size: 16px;
+    margin-left: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 li button:hover {
-    background-color: #e53935;
+    opacity: 0.8;
+}
+
+.done-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.update-button {
+    background-color: #FFA500; /* Orange */
+    color: white;
+}
+
+.remove-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.navbar {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    margin: 0;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.greeting {
+    text-align: center;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.greeting h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #4a90e2;
+    margin-bottom: 10px;
+}
+
+#greet {
+    font-size: 48px;
+    font-weight: 600;
+    color: #ff6f61;
+}
+
+.greeting p {
+    font-size: 18px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.greeting div {
+    font-size: 18px;
+    color: #888;
+    font-style: italic;
+}
+
+footer {
+    background-color: #5c67f2;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%; /* Agar footer mengisi seluruh lebar */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+    align-items: center;
+    display: flex;
+}
+
+
+
+.footer-links a:hover {
+    color: #f0f0f5;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+div.footer-links {
+    align-items: center;
 }
