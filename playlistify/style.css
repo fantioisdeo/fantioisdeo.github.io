@@ -20,7 +20,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 2px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 350px;
+    width: 850px;
     animation: fadeIn 1s ease-in-out;
 }
 @keyframes fadeIn {
@@ -96,15 +96,44 @@ li:hover {
 }
 
 li button {
-    background-color: #ff4d4d;
-    color: white;
+    padding: 10px 15px;
     border: none;
-    padding: 6px 12px;
     border-radius: 5px;
     cursor: pointer;
-    transition: backgorund-color 0.3s;
+    font-size: 16px;
+    margin-left: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
 li button:hover {
-    background-color: #e53935;
+    opacity: 0.8;
+}
+
+.done-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.update-button {
+    background-color: #FFA500; /* Orange */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.remove-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
