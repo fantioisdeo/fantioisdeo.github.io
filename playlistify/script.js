@@ -8,23 +8,22 @@ function addSong() {
         return;
     }
 
-    const playlist = document.getElementById("playlist");
-    const songItem = document.createElement("li");
-    songItem.innerHTML = `
-            <div>
-                <div>
-                    ${songTitle} - ${artistName} 
-                </div>
-            </div>
-            <div style="display:flex; gap:4px;">
-                <button>
-                    <a href="${linkSong}" target="_blank">Link</a>
+    const playlistTable = $('#playlist').DataTable();
+    playlistTable.row.add([
+        songTitle,
+        artistName,
+        `
+        <div class="aksi">
+            <a class="link-button" href="${linkSong}" target="_blank">
+                <button class="link-button">
+                    Lets Go!
                 </button>
-                <button onclick="removeSong(this)">Hapus</button>
-            </div>
-    `;
-    
-    playlist.appendChild(songItem);
+            </a>
+            <button class="update-button" onclick="updateSong(this)">Edit</button>
+            <button class="remove-button" onclick="removeSong(this)">Hapus</button>
+        </div>
+        `
+    ]).draw();
 
     // Reset input fields
     document.getElementById("songTitle").value = "";
@@ -33,7 +32,32 @@ function addSong() {
 }
 
 function removeSong(button) {
-    const songItem = button.parentElement;
-    songItem.classList.add('remove');
-    setTimeout(() => songItem.remove(), 300);
+    const playlistTable = $('#playlist').DataTable();
+    const row = $(button).closest('tr');
+    playlistTable.row(row).remove().draw();
+}
+
+function updateSong(button) {
+    const row = $(button).closest('tr');
+    const data = $('#playlist').DataTable().row(row).data();
+
+    const newSongTitle = prompt("Edit judul lagu:", data[0]);
+    const newArtistName = prompt("Edit nama artis:", data[1]);
+    const newLink = prompt("Edit link:", data[2].match(/href="([^"]+)"/)[1]);
+
+    if (newSongTitle !== null && newArtistName !== null && newSongTitle !== "" && newArtistName !== "") {
+        $('#playlist').DataTable().row(row).data([
+            newSongTitle,
+            newArtistName,
+            `<div class="aksi">
+                <a class="link-button" href="${newLink}" target="_blank">
+                    <button class="link-button">
+                        Lets Go!
+                    </button>
+                </a>
+                <button class="update-button" onclick="updateSong(this)">Edit</button>
+                <button class="remove-button" onclick="removeSong(this)">Hapus</button>
+            </div>`
+        ]).draw();
+    }
 }
