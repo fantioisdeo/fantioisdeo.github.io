@@ -3,46 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist Lagu</title>
+    <title>Playlistify - Playlist Lagu</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>🎵 Playlist Lagu Saya 🎶</h1>
-        
-        <div class="input-form">
-            <input type="text" id="songTitle" placeholder="Masukkan Judul Lagu" required>
-            <input type="text" id="artistName" placeholder="Masukkan Nama Artis" required>
-            <input type="text" id="linkSong" placeholder="Insert Link">
-            <button onclick="addSong()">➕ Tambahkan Lagu</button>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+    <nav class="navbar">
+        <div class="logo"> <img src="assets/icons8-rock-music-48.png"> Playlistify.</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#container">My Playlist</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="greeting">
+            <h1>Hi, <span id="greet"></span></h1>
+            <p>"Find Your Beat."</p>
+            <div>"Feel the Rhythm, Live the Moment."</div>
         </div>
 
-        <div style="padding-top: 5%;">
-            <table id="playlist">
-                <thead>
-                    <tr>
-                        <th>Judul Lagu</th>
-                        <th>Nama Artis</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div id="embed-iframe"></div>
+
+
+        <div class="container" id="container">
+            <h1>🎵 My Playlist 🎶</h1>
+            
+            <div class="input-form">
+                <input type="text" id="songTitle" placeholder="Input Song Title" required>
+                <input type="text" id="artistName" placeholder="Input Artist Name" required>
+                <input type="text" id="linkSong" placeholder="Insert Link">
+                <button onclick="addSong()">➕ Add Song</button>
+            </div>
+    
+            <div style="padding-top: 5%;">
+                <table id="playlist">
+                    <thead>
+                        <tr>
+                            <th>Song Title</th>
+                            <th>Artist Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <ul id="playlist"></ul> -->
         </div>
-        
-        <dialog id="my_modal_2" class="modal">
-            <iframe width="420" height="315" src="https://www.youtube.com/watch?v=IHNzOHi8sJs">
-            </iframe>
-            <form method="dialog" class="modal-backdrop">
-                <button>close</button>
-            </form>
-        </dialog>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Playlistify. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="Instagram.com">Follow Us on Instagram <img src="assets/icons8-instagram-48.png"></a>
+            </div>
+        </div>
         <!-- <ul id="playlist"></ul> -->
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

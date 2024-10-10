@@ -8,10 +8,17 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f0f0f5;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between; /* Untuk memisahkan konten dan footer */
     align-items: center;
-    height: 100vh;
-    color: #333
+    min-height: 100vh; /* Agar body tetap memenuhi layar */
+    color: #333;
+    overflow-x: hidden; /* Mencegah scrolling horizontal */
+    padding-top: 50px; /* Menjaga navbar tetap terlihat */
+}
+
+main {
+    padding-bottom: 40px;
 }
 
 .container {
@@ -21,8 +28,15 @@ body {
     box-shadow: 0 8px 2px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 850px;
+    flex-grow: 1; /* Mengisi ruang kosong */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Agar konten tetap berada di tengah */
+    min-height: 300px; /* Untuk mencegah container terlalu kecil */
+    margin-top: 20px; /* Memberikan jarak dari bagian atas */
     animation: fadeIn 1s ease-in-out;
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -31,7 +45,7 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
-    }    
+    }
 }
 
 h1 {
@@ -51,7 +65,7 @@ h1 {
     transition: border-color 0.3s;
 }
 
-.input-form input:focus{
+.input-form input:focus {
     border-color: #5c67f2;
     outline: none;
 }
@@ -90,6 +104,7 @@ li {
     border: 1px solid #ddd;
     transition: background-color 0.3s, transform 0.3s;
 }
+
 li:hover {
     background-color: #f0f0f5;
     transform: scale(1.02);
@@ -102,7 +117,7 @@ li button {
     cursor: pointer;
     font-size: 16px;
     margin-left: 5px;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 li button:hover {
@@ -124,6 +139,7 @@ li button:hover {
     font-size: 16px;
     margin-left: 5px;
     transition: background-color 0.3s, color 0.3s;
+
 }
 
 .remove-button {
@@ -139,8 +155,7 @@ li button:hover {
 }
 
 .link-button {
-    background-color: #176bda;
-    /* Orange */
+    background-color: #27986d; /* Blue */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -155,4 +170,124 @@ li button:hover {
     display: flex;
     flex-direction: column;
     gap: 4px;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    margin: 0;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+/* Greeting Section */
+.greeting {
+    text-align: center;
+    padding: 40px 0;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.greeting h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #4a90e2;
+    margin-bottom: 10px;
+}
+
+#greet {
+    font-size: 48px;
+    font-weight: 600;
+    color: #ff6f61;
+}
+
+.greeting p {
+    font-size: 18px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.greeting div {
+    font-size: 18px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #5c67f2;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+    align-items: center;
+    display: flex;
+}
+
+.footer-links a:hover {
+    color: #f0f0f5;
 }
