@@ -11,6 +11,14 @@ function addSong() {
     const artistName = document.getElementById("artistName").value;
     const linkSong = document.getElementById("linkSong").value;
 
+    let userLink = ""
+    if (linkSong.includes("<iframe")) {
+        userLink = linkSong
+    } else {
+        alert("Please input embeded link");
+        return;
+    }
+
     if (songTitle === "" || artistName === "") {
         alert("Please input Song Title and Artist Name.");
         return;
@@ -22,7 +30,7 @@ function addSong() {
         artistName,
         `
         <div class="aksi">
-            ${linkSong}
+            ${userLink}
             <button class="update-button" onclick="updateSong(this)">Edit</button>
             <button class="remove-button" onclick="removeSong(this)">Delete</button>
         </div>
@@ -49,12 +57,20 @@ function updateSong(button) {
     const newArtistName = prompt("Edit Artist Name:", data[1]);
     const newLink = prompt("Edit link:", data[2]);
 
+    let userLink = ""
+    if (newLink.includes("<iframe")) {
+        userLink = newLink
+    } else {
+        alert("Please input embeded link");
+        return;
+    }
+
     if (newSongTitle !== null && newArtistName !== null && newSongTitle !== "" && newArtistName !== "") {
         $('#playlist').DataTable().row(row).data([
             newSongTitle,
             newArtistName,
             `<div class="aksi">
-                ${newLink}
+                ${userLink}
                 <button class="update-button" onclick="updateSong(this)">Edit</button>
                 <button class="remove-button" onclick="removeSong(this)">Delete</button>
             </div>`
