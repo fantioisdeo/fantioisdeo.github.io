@@ -132,6 +132,7 @@ li button:hover {
 .update-button {
     background-color: #FFA500; /* Orange */
     color: white;
+<<<<<<< HEAD
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -140,11 +141,14 @@ li button:hover {
     margin-left: 5px;
     transition: background-color 0.3s, color 0.3s;
 
+=======
+>>>>>>> 273ade75a1cc8af3a90ae8525ad9495534477512
 }
 
 .remove-button {
     background-color: #f44336; /* Red */
     color: white;
+<<<<<<< HEAD
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -152,11 +156,14 @@ li button:hover {
     font-size: 16px;
     margin-left: 5px;
     transition: background-color 0.3s, color 0.3s;
+=======
+>>>>>>> 273ade75a1cc8af3a90ae8525ad9495534477512
 }
 
 .link-button {
     background-color: #176bda; /* Blue */
     color: white;
+<<<<<<< HEAD
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -165,6 +172,8 @@ li button:hover {
     margin-left: 5px;
     transition: background-color 0.3s, color 0.3s;
 
+=======
+>>>>>>> 273ade75a1cc8af3a90ae8525ad9495534477512
 }
 
 .aksi {
