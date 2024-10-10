@@ -3,37 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist Lagu</title>
+    <title>Playlistify - Playlist Lagu</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>🎵 Playlist Lagu Saya 🎶</h1>
-        
-        <div class="input-form">
-            <input type="text" id="songTitle" placeholder="Masukkan Judul Lagu" required>
-            <input type="text" id="artistName" placeholder="Masukkan Nama Artis" required>
-            <input type="text" id="linkSong" placeholder="Insert Link">
-            <button onclick="addSong()">➕ Tambahkan Lagu</button>
+    <nav class="navbar">
+        <div class="logo"> <img src="assets/icons8-rock-music-48.png"> Playlistify.</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#container">My Playlist</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="greeting">
+            <h1>Hi, <span id="greet"></span></h1>
+            <p>"Find Your Beat."</p>
+            <div>"Feel the Rhythm, Live the Moment."</div>
         </div>
 
-        <div style="padding-top: 5%;">
-            <table id="playlist">
-                <thead>
-                    <tr>
-                        <th>Judul Lagu</th>
-                        <th>Nama Artis</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="container" id="container">
+            <h1>🎵 My Playlist 🎶</h1>
+            
+            <div class="input-form">
+                <input type="text" id="songTitle" placeholder="Input Song Title" required>
+                <input type="text" id="artistName" placeholder="Input Artist Name" required>
+                <input type="text" id="linkSong" placeholder="Insert Link">
+                <button onclick="addSong()">➕ Add Song</button>
+            </div>
+    
+            <div style="padding-top: 5%;">
+                <table id="playlist">
+                    <thead>
+                        <tr>
+                            <th>Song Title</th>
+                            <th>Artist Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <ul id="playlist"></ul> -->
         </div>
-        <!-- <ul id="playlist"></ul> -->
-    </div>
+<<<<<<< HEAD
+=======
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#playlist').DataTable(); // Initialize DataTable
+            });
+        </script>
+>>>>>>> 273ade75a1cc8af3a90ae8525ad9495534477512
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Playlistify. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="Instagram.com">Follow Us on Instagram <img src="assets/icons8-instagram-48.png"></a>
+            </div>
+        </div>
+    </footer>
+
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="script.js"></script>
@@ -42,5 +83,7 @@
             $('#playlist').DataTable(); // Initialize DataTable
         });
     </script>
+=======
+>>>>>>> 273ade75a1cc8af3a90ae8525ad9495534477512
 </body>
 </html>
