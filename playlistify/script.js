@@ -14,11 +14,7 @@ function addSong() {
         artistName,
         `
         <div class="aksi">
-            <a class="link-button" href="${linkSong}" target="_blank">
-                <button class="link-button">
-                    Lets Go!
-                </button>
-            </a>
+            <button class="link-button" onclick="my_modal_2.showModal()">open modal</button>
             <button class="update-button" onclick="updateSong(this)">Edit</button>
             <button class="remove-button" onclick="removeSong(this)">Hapus</button>
         </div>
@@ -50,11 +46,7 @@ function updateSong(button) {
             newSongTitle,
             newArtistName,
             `<div class="aksi">
-                <a class="link-button" href="${newLink}" target="_blank">
-                    <button class="link-button">
-                        Lets Go!
-                    </button>
-                </a>
+                <button class="link-button" onclick="my_modal_2.showModal()">open modal</button>
                 <button class="update-button" onclick="updateSong(this)">Edit</button>
                 <button class="remove-button" onclick="removeSong(this)">Hapus</button>
             </div>`
