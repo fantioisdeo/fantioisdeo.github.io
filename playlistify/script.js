@@ -22,11 +22,7 @@ function addSong() {
         artistName,
         `
         <div class="aksi">
-            <a class="link-button" href="${linkSong}" target="_blank">
-                <button class="link-button">
-                    Lets Go!
-                </button>
-            </a>
+            ${linkSong}
             <button class="update-button" onclick="updateSong(this)">Edit</button>
             <button class="remove-button" onclick="removeSong(this)">Delete</button>
         </div>
@@ -51,18 +47,14 @@ function updateSong(button) {
 
     const newSongTitle = prompt("Edit Song Title:", data[0]);
     const newArtistName = prompt("Edit Artist Name:", data[1]);
-    const newLink = prompt("Edit link:", data[2].match(/href="([^"]+)"/)[1]);
+    const newLink = prompt("Edit link:", data[2]);
 
     if (newSongTitle !== null && newArtistName !== null && newSongTitle !== "" && newArtistName !== "") {
         $('#playlist').DataTable().row(row).data([
             newSongTitle,
             newArtistName,
             `<div class="aksi">
-                <a class="link-button" href="${newLink}" target="_blank">
-                    <button class="link-button">
-                        Lets Go!
-                    </button>
-                </a>
+                ${newLink}
                 <button class="update-button" onclick="updateSong(this)">Edit</button>
                 <button class="remove-button" onclick="removeSong(this)">Delete</button>
             </div>`
